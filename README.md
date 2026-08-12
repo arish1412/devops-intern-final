@@ -1,6 +1,6 @@
 # DevOps Intern Final — DevOps Workflow Demo
 
-**Author:** Your Name
+**Author:** arish1412
 
 **Date:** 2026-08-12
 
@@ -23,7 +23,7 @@ git init
 git add .
 git commit -m "Initial commit: DevOps workflow demo"
 # Create a repo on GitHub and follow its instructions to push, e.g.: 
-# git remote add origin https://github.com/<your-user>/devops-intern-final.git
+# git remote add origin https://github.com/arish1412/devops-intern-final.git
 # git branch -M main
 # git push -u origin main
 ```
@@ -35,9 +35,9 @@ docker build -t devops-hello:latest .
 docker run --rm devops-hello:latest
 ```
 
-3. GitHub Actions: After pushing the repo, CI will run automatically. Update the CI badge below with your GitHub owner/repo.
+3. GitHub Actions: After pushing the repo, CI will run automatically. The current badge points to this repository.
 
-CI status: ![CI](https://github.com/<owner>/<repo>/actions/workflows/ci.yml/badge.svg)
+CI status: ![CI](https://github.com/arish1412/devops-intern-final/actions/workflows/ci.yml/badge.svg)
 
 4. Nomad: See `nomad/hello.nomad` for a job definition. To run locally (with Nomad + Docker installed):
 
