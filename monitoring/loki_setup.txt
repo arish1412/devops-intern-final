@@ -1,0 +1,21 @@
+Loki setup notes
+
+1) Start Loki via Docker (single binary quickstart):
+
+```bash
+docker run --name loki -d -p 3100:3100 grafana/loki:2.8.2
+```
+
+2) View logs with `docker logs` (example for a container named `devops-hello`):
+
+```bash
+docker logs -f devops-hello
+```
+
+3) To query logs with `logcli` (optional):
+
+```bash
+docker run --rm -it grafana/logcli:latest --addr=http://host.docker.internal:3100 query "{job=\"hello\"}"
+```
+
+Notes: For Nomad, ensure the task's Docker logs are available to the host; Nomad + Docker will keep logs accessible via `docker logs` on single-node setups.
