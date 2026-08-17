@@ -1,0 +1,22 @@
+.docker-test/
+.env
+*.log
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Docker/Nomad local state
+nomad-data/
+alloc/
+data/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,38 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  - job_name: nomad-stdout
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nomad
+          stream: stdout
+          __path__: /nomad-allocs/*/alloc/logs/*.stdout.*
+
+  - job_name: nomad-stderr
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: nomad
+          stream: stderr
+          __path__: /nomad-allocs/*/alloc/logs/*.stderr.*
+
+  - job_name: docker-containers
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/*/*.log
+    pipeline_stages:
+      - docker: {}
